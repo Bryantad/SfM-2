@@ -31,7 +31,7 @@ class ModelManager:
                 model['healthy'] = True
             elif name == 'openai':
                 # Placeholder: check quota or API key
-                model['quota_ok'] = bool(os.getenv('your_openai_api_key_here'))
+                model['quota_ok'] = bool(os.getenv('OPENAI_API_KEY'))
         logger.info(f"Model health: {self.models}")
 
     def intelligent_routing(self, prompt_type: str, complexity: str = 'auto') -> str:

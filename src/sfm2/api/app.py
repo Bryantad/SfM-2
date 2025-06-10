@@ -22,11 +22,11 @@ def openai_generate(prompt: str, prompt_type: str) -> str:
     """Generate text using OpenAI API as fallback."""
     try:
         import openai
-        api_key = os.getenv('your_openai_api_key_here')
+        api_key = os.getenv('OPENAI_API_KEY')
         
         if not api_key:
             return ("OpenAI API key not configured. "
-                   "Please set your_openai_api_key_here environment variable.")
+                   "Please set OPENAI_API_KEY environment variable.")
         
         client = openai.OpenAI(api_key=api_key)
         

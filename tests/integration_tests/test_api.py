@@ -61,7 +61,7 @@ def test_api():
     
     print("\n✅ API tests completed!")
     print("\n💡 To enable OpenAI fallback:")
-    print("   Set environment variable: your_openai_api_key_here=your_key_here")
+    print("   Set environment variable: OPENAI_API_KEY=your_key_here")
     print("   Then restart the API server")
 
 if __name__ == "__main__":
