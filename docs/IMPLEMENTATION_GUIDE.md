@@ -12,31 +12,31 @@
 
 ### ✅ Phase 1: SFM-2 Training Infrastructure
 
-- **File**: `scripts/train_sfm2.py`
+- **File**: `src/sfm2/training/pipeline.py`
 - **Features**: Custom tokenizer, early stopping, gradient clipping, validation loops
 - **Status**: Ready to run (requires GPU and training data)
 
 ### ✅ Phase 2: Enhanced Text Generation System
 
-- **File**: `models/sfm-2/generate_text_enhanced.py`
+- **File**: `src/sfm2/api/app.py`
 - **Features**: Custom tokenizer, prompt processing, generation validation
 - **Status**: Complete infrastructure, awaiting trained model
 
 ### ✅ Phase 3: Data Processing Pipeline
 
-- **File**: `datasets/clean_dataset.py`
+- **File**: `src/sfm2/training/data_processing.py`
 - **Features**: Sona code cleaning, formatting, validation
 - **Status**: Ready for dataset processing
 
 ### ✅ Phase 4: Model Evaluation System
 
-- **File**: `eval/eval_sfm2.py`
+- **File**: `src/sfm2/training/evaluation.py`
 - **Features**: BLEU scores, syntax accuracy, function completion metrics
 - **Status**: Complete evaluation framework
 
 ### ✅ Phase 5: ModelManager & API Integration
 
-- **Files**: `api/model_manager.py`, `api/app.py`
+- **Files**: `src/sfm2/core/model_manager.py`, `src/sfm2/api/app.py`
 - **Features**:
   - ✅ Health monitoring and model status reporting
   - ✅ Intelligent routing (SFM-2 → GPT-2 LoRA → OpenAI fallback)
@@ -47,7 +47,7 @@
 
 ### ✅ Phase 6: Demo Dashboard
 
-- **File**: `demo/dashboard.py`
+- **File**: `examples/demo_dashboard.py`
 - **Features**:
   - ✅ Real-time model testing interface
   - ✅ Health status monitoring
@@ -100,9 +100,8 @@
 
 ### Test Files Created
 
-- `test_api.py` - Basic API functionality testing
-- `live_demo_test.py` - Comprehensive pipeline testing
-- `setup_demo.py` - Environment setup and configuration
+- `tests/integration_tests/test_api.py` - Basic API functionality testing
+- `scripts/setup_environment.py` - Environment setup and configuration
 
 ---
 
@@ -115,10 +114,10 @@
 pip install fastapi uvicorn streamlit openai transformers torch
 
 # Start API server
-python -m uvicorn api.app:app --host 0.0.0.0 --port 8000
+python -m uvicorn sfm2.api.app:app --host 0.0.0.0 --port 8000
 
 # Start dashboard
-python -m streamlit run demo/dashboard.py --server.port 8501
+python -m streamlit run examples/demo_dashboard.py --server.port 8501
 ```
 
 ### 2. Model Integration Options
@@ -133,7 +132,7 @@ export OPENAI_API_KEY="your_openai_key_here"
 #### Option B: Train SFM-2 Model
 
 ```bash
-python scripts/train_sfm2.py
+python src/sfm2/training/pipeline.py
 # Integrates automatically with ModelManager
 ```
 
@@ -181,7 +180,7 @@ python scripts/train_sfm2.py
 
 ## 🚀 Next Steps (Optional)
 
-1. **Model Training**: Run `python scripts/train_sfm2.py` for SFM-2
+1. **Model Training**: Run `python src/sfm2/training/pipeline.py` for SFM-2
 2. **OpenAI Integration**: Add API key for live fallback responses
 3. **Production Deployment**: Deploy to cloud infrastructure
 4. **Performance Optimization**: GPU acceleration and caching
