@@ -82,7 +82,7 @@ This is the open-source component of the SFM-2 project. For information about:
 
 For research collaboration, business inquiries, or technical support:
 - GitHub Issues for technical questions
-- Email: [your-email] for business inquiries
+- Email: inquires@waycoreinc.com for business inquiries
 
 ---
 

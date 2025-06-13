@@ -53,7 +53,7 @@ with col2:
     st.markdown("""
     - **SFM-2**: Run training script to load model
     - **GPT-2 LoRA**: Load pre-trained adapter
-    - **OpenAI**: Set `your_openai_api_key_here` environment variable
+    - **OpenAI**: Set `OPENAI_API_KEY` environment variable
     """)
 
 # Main Inference Section
@@ -161,7 +161,7 @@ with col2:
     python scripts/train_sfm2.py
     
     # 2. Set OpenAI key (optional)
-    set your_openai_api_key_here=your_key_here
+    set OPENAI_API_KEY=your_key_here
     
     # 3. Start API server
     python -m uvicorn api.app:app --reload
